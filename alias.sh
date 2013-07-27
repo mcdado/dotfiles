@@ -14,7 +14,7 @@ alias brup='brew update && echo "$(tput bold)Outdated packages: $(tput sgr0)    
 
 # youtube download
 alias yt="youtube-dl -o '%(title)s (%(uploader)s) [%(id)s].%(ext)s' $1"
-alias ytl="youtube-dl -o '(%(uploader)s) - %(playlist)s/%(playlist_index)s. %(title)s [%(id)s].%(ext)s' $1"
+alias ytl="youtube-dl -o '%(uploader)s - %(playlist)s/%(playlist_index)s. %(title)s [%(id)s].%(ext)s' $1"
 
 alias yt1080="yt -f 37/46"
 alias  yt720="yt -f 22/45"
