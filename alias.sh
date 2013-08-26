@@ -10,6 +10,8 @@ alias hs='history | grep --color=auto'
 
 alias networklisteners='lsof -i -P | grep LISTEN'
 
+alias speedtest='wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip'
+
 alias brup='brew update && echo "$(tput bold)Outdated packages: $(tput sgr0)    (brew upgrade to fix)" && brew outdated'
 
 # youtube download
