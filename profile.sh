@@ -11,12 +11,12 @@ export PATH="/usr/local/bin:\
 $PATH:\
 /Applications/Mkvtoolnix.app/Contents/MacOS"
 
-source /usr/share/git-core/git-completion.bash
-source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
+
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   source $(brew --prefix)/etc/bash_completion
 fi
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+source $(brew --prefix)/Library/Contributions/brew_bash_completion.sh
 
 source ~/Developer/Repos/dotfiles/alias.sh
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
