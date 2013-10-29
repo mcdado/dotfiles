@@ -97,13 +97,14 @@ function extract() {
 # download a whole website
 function getsite () {
 	wget \
-	--recursive \
-	--page-requisites \
-	--convert-links \
-	--html-extension \
-	--restrict-file-names=windows \
-	--no-parent \
-	"$1"
+  -e robots=off \
+  --no-parent \
+  --restrict-file-names=windows \
+  --recursive \
+  --convert-links \
+  --html-extension \
+  --page-requisites \
+  "$1"
 #	--wait=5 --limit-rate=300K \
 #	--no-clobber \
 #	--user-agent="" \
