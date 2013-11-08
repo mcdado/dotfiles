@@ -33,6 +33,6 @@ export PIP_REQUIRE_VIRTUALENV=true
 # cache pip-installed packages to avoid re-downloading
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 # how do we install or upgrade a global package? We can temporarily turn off this restriction 
-function system-pip(){
+function systempip(){
    PIP_REQUIRE_VIRTUALENV="" pip "$@"
 }

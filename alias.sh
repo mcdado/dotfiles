@@ -2,7 +2,7 @@ alias la="ls -lhAG"             # -F
 alias lm="la -t"				# by last modified
 alias md="mkdir -p"				# make a nested dir
 alias speak='say -v "Daniel" '  
-alias parla='say -v "Paolo" '
+alias parla='say -v "Luca" '
 alias topcpu="top -o cpu"		# top sorted by cpu usage
 alias topmemory="top -o rsize"	# top sorted by ram usage
 
