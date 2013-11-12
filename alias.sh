@@ -17,8 +17,8 @@ alias speedtest='wget -O /dev/null http://speedtest.reliableservers.com/100MBtes
 alias brup='brew update && echo "$(tput bold)Outdated packages: $(tput sgr0)    (brew upgrade to fix)" && brew outdated'
 
 # youtube download
-alias yt="youtube-dl -o '%(title)s (%(uploader)s) [%(id)s].%(ext)s' $1"
-alias ytl="youtube-dl -o '%(uploader)s - %(playlist)s/%(playlist_index)s. %(title)s [%(id)s].%(ext)s' $1"
+alias yt="youtube-dl -o '%(title)s (%(uploader)s) [%(id)s].%(ext)s' $@"
+alias ytl="youtube-dl -o '%(uploader)s - %(playlist)s/%(playlist_index)s. %(title)s [%(id)s].%(ext)s' $@"
 
 alias yt1080="yt -f 37/46"
 alias  yt720="yt -f 22/45"
@@ -29,6 +29,8 @@ alias ytl1080="ytl -f 37/46"
 alias  ytl720="ytl -f 22/45"
 alias  ytl480="ytl -f 44/35/18"
 alias  ytl360="ytl -f 18/43/34"
+
+alias yt-audio="yt -f 141/140/139"
 
 
 # Fix for Open With menu
@@ -45,8 +47,8 @@ function most-bash() {
 
 # add an alias and reload the bash aliases file
 function aa() {
-	mate -w ~/.bash/alias.sh
-	source ~/.bash_profile
+	mate -w ~/Developer/Repos/dotfiles/alias.sh
+	source ~/Developer/Repos/dotfiles/profile.sh
 }
 
 # make a dir and cd into it
@@ -106,7 +108,7 @@ function getsite () {
   --convert-links \
   --html-extension \
   --page-requisites \
-  "$1"
+  "$@"
 #	--wait=5 --limit-rate=300K \
 #	--no-clobber \
 #	--user-agent="" \
