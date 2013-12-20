@@ -12,6 +12,8 @@ alias networklisteners='lsof -i -P | grep LISTEN'
 
 alias sleepscreen="osascript -e 'tell application \"System Events\" to sleep'"
 
+alias myip="dig myip.opendns.com @resolver1.opendns.com +short"
+
 alias speedtest='wget -O /dev/null http://speedtest.reliableservers.com/100MBtest.bin'
 
 alias brup='brew update && echo "$(tput bold)Outdated packages: $(tput sgr0)    (brew upgrade to fix)" && brew outdated'
