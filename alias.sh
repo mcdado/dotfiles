@@ -49,14 +49,14 @@ function most-bash() {
 
 # add an alias and reload the bash aliases file
 function aa() {
-	mate -w ~/Developer/Repos/dotfiles/alias.sh
+	subl -w ~/Developer/Repos/dotfiles/alias.sh
 	source ~/Developer/Repos/dotfiles/profile.sh
 }
 
 # make a dir and cd into it
-function take() {
-	mkdir $1
-	cd $1
+function mkd() {
+	mkdir -p $1
+  cd $1
 }
 
 # paginated colored tree
