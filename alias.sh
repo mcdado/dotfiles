@@ -49,7 +49,7 @@ function most-bash() {
 
 # add an alias and reload the bash aliases file
 function aa() {
-	subl -w ~/Developer/Repos/dotfiles/alias.sh
+	mate -w ~/Developer/Repos/dotfiles/alias.sh
 	source ~/Developer/Repos/dotfiles/profile.sh
 }
 
@@ -59,8 +59,13 @@ function mkd() {
   cd $1
 }
 
+# a better defaults to tree
+function tree2() {
+  tree -CN --du --si $1
+}
+
 # paginated colored tree
-function ltree() {
+function treeless() {
     tree -C $* | less -R
 }
 
