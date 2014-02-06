@@ -35,6 +35,7 @@ function systempip(){
    PIP_REQUIRE_VIRTUALENV="" pip "$@"
 }
 
+source /usr/local/opt/autoenv/activate.sh
 
 ##
 # RVM (Ruby enVironment Manager)
