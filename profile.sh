@@ -23,6 +23,9 @@ source ~/Developer/Repos/dotfiles/alias.sh
 ##
 # PIP 
 ##
+#
+export WORKON_HOME=$HOME/.pip/virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
 # pip should only run if there is a virtualenv currently activated
 export PIP_REQUIRE_VIRTUALENV=true
 # cache pip-installed packages to avoid re-downloading
