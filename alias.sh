@@ -8,6 +8,8 @@ alias topmemory="top -o rsize"	# top sorted by ram usage
 
 alias hs='history | grep --color=auto'
 
+alias wifi="networksetup -setairportpower en1" # use wifi on or wifi off
+
 alias networklisteners='lsof -i -P | grep LISTEN'
 
 alias sleepscreen="osascript -e 'tell application \"System Events\" to sleep'"
