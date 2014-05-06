@@ -1,10 +1,10 @@
 alias la="ls -lhAG"             # -F
-alias lm="la -t"				# by last modified
-alias md="mkdir -p"				# make a nested dir
-alias speak='say -v "Daniel" '  
+alias lm="la -t"                # by last modified
+alias md="mkdir -p"             # make a nested dir
+alias speak='say -v "Daniel" '
 alias parla='say -v "Luca" '
-alias topcpu="top -o cpu"		# top sorted by cpu usage
-alias topmemory="top -o rsize"	# top sorted by ram usage
+alias topcpu="top -o cpu"       # top sorted by cpu usage
+alias topmemory="top -o rsize"  # top sorted by ram usage
 
 alias hs='history | grep --color=auto'
 
@@ -121,7 +121,7 @@ function getsite () {
   # --span-hosts \
   # --wait=5 --limit-rate=300K \
   # --no-clobber \
-  # --user-agent="" \
+  # --user-agent="" \  
   # --domains website.org \
 }
 
@@ -132,14 +132,14 @@ function getwholepage () {
 
 # Quickly get image dimensions from the command line
 function imgsize() {
-	local width height
-	if [[ -f $1 ]]; then
-		height=$(sips -g pixelHeight "$1"|tail -n 1|awk '{print $2}')
-		width=$(sips -g pixelWidth "$1"|tail -n 1|awk '{print $2}')
-		echo "${width} x ${height}"
-	else
-		echo "File not found"
-	fi
+  local width height
+  if [[ -f $1 ]]; then
+    height=$(sips -g pixelHeight "$1"|tail -n 1|awk '{print $2}')
+    width=$(sips -g pixelWidth "$1"|tail -n 1|awk '{print $2}')
+    echo "${width} x ${height}"
+  else
+    echo "File not found"
+  fi
 }
 
 # encode a given image file as base64 and output css background property to clipboard
