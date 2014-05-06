@@ -116,7 +116,7 @@ function getsite () {
   --recursive \
   --convert-links \
   --restrict-file-names=windows \
-  --html-extension \
+  --adjust-extension \
   "$@"
   # --span-hosts \
   # --wait=5 --limit-rate=300K \
