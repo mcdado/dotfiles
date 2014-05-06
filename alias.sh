@@ -46,18 +46,18 @@ echo "Open With has been rebuilt, Finder will relaunch"'
 # create a list of most used commands
 # alias freq='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 30'
 function most-bash() {
-	history | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head
+  history | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head
 }
 
 # add an alias and reload the bash aliases file
 function aa() {
-	mate -w ~/Developer/Repos/dotfiles/alias.sh
-	source ~/Developer/Repos/dotfiles/profile.sh
+  mate -w ~/Developer/Repos/dotfiles/alias.sh
+  source ~/Developer/Repos/dotfiles/profile.sh
 }
 
 # make a dir and cd into it
 function mkd() {
-	mkdir -p $1
+  mkdir -p $1
   cd $1
 }
 
@@ -68,12 +68,12 @@ function tree2() {
 
 # paginated colored tree
 function treeless() {
-    tree -C $* | less -R
+  tree -C $* | less -R
 }
 
 # empty the local trash
 function empty-trash() {
-	rm -r ~/.Trash/*
+  rm -r ~/.Trash/*
 }
 
 # zip a whole dir into a file
@@ -87,41 +87,47 @@ alias git-log="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %
 
 # Extract most know archives with one command
 function extract() {
-    if [ -f $1 ] ; then
-      case $1 in
-        *.tar.bz2)   tar xjf $1     ;;
-        *.tar.gz)    tar xzf $1     ;;
-        *.bz2)       bunzip2 $1     ;;
-        *.rar)       unrar e $1     ;;
-        *.gz)        gunzip $1      ;;
-        *.tar)       tar xf $1      ;;
-        *.tbz2)      tar xjf $1     ;;
-        *.tgz)       tar xzf $1     ;;
-        *.zip)       unzip $1       ;;
-        *.Z)         uncompress $1  ;;
-        *.7z)        7z x $1        ;;
-        *)     echo "'$1' cannot be extracted via extract()" ;;
-         esac
-     else
-         echo "'$1' is not a valid file"
-     fi
+  if [ -f $1 ] ; then
+    case $1 in
+    *.tar.bz2)   tar xjf $1   ;;
+    *.tar.gz)    tar xzf $1   ;;
+    *.bz2)       bunzip2 $1   ;;
+    *.rar)       unrar e $1   ;;
+    *.gz)        gunzip $1    ;;
+    *.tar)       tar xf $1    ;;
+    *.tbz2)      tar xjf $1   ;;
+    *.tgz)       tar xzf $1   ;;
+    *.zip)       unzip $1     ;;
+    *.Z)         uncompress $1  ;;
+    *.7z)        7z x $1    ;;
+    *)   echo "'$1' cannot be extracted via extract()" ;;
+     esac
+   else
+     echo "'$1' is not a valid file"
+   fi
 }
 
-# download a whole website
+# download a website (no going up the directory tree and no external resources)
 function getsite () {
-	wget \
+  wget \
   -e robots=off \
+  --page-requisites \
   --no-parent \
-  --restrict-file-names=windows \
   --recursive \
   --convert-links \
+  --restrict-file-names=windows \
   --html-extension \
-  --page-requisites \
   "$@"
-#	--wait=5 --limit-rate=300K \
-#	--no-clobber \
-#	--user-agent="" \
-#	--domains website.org \
+  # --span-hosts \
+  # --wait=5 --limit-rate=300K \
+  # --no-clobber \
+  # --user-agent="" \
+  # --domains website.org \
+}
+
+# download a single page including external resources
+function getwholepage () {
+  wget -E -H -k -K -p "$@"
 }
 
 # Quickly get image dimensions from the command line
@@ -138,6 +144,6 @@ function imgsize() {
 
 # encode a given image file as base64 and output css background property to clipboard
 function 64enc() {
-	openssl base64 -in $1 | awk -v ext="${1#*.}" '{ str1=str1 $0 }END{ print "background:url(data:image/"ext";base64,"str1");" }'|pbcopy
-	echo "$1 encoded to clipboard"
+  openssl base64 -in $1 | awk -v ext="${1#*.}" '{ str1=str1 $0 }END{ print "background:url(data:image/"ext";base64,"str1");" }'|pbcopy
+  echo "$1 encoded to clipboard"
 }
