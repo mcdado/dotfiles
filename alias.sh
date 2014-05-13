@@ -147,3 +147,11 @@ function 64enc() {
   openssl base64 -in $1 | awk -v ext="${1#*.}" '{ str1=str1 $0 }END{ print "background:url(data:image/"ext";base64,"str1");" }'|pbcopy
   echo "$1 encoded to clipboard"
 }
+
+# Open argument in Dash
+function dash() {
+  open "dash://$*"
+}
+function dman() {
+  open "dash://manpages:$*"
+}
