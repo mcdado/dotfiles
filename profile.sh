@@ -1,4 +1,11 @@
 ##
+# Globals
+##
+readonly PROGNAME=$(basename $0)
+readonly PROGDIR=$(readlink -m $(dirname $0))
+readonly ARGS="$@"
+
+##
 # Environment variables
 ##
 export LANG=en_US.UTF-8
@@ -19,6 +26,7 @@ source $(brew --prefix)/Library/Contributions/brew_bash_completion.sh
 # Other Bash files
 ##
 source ~/Developer/Repos/dotfiles/alias.sh
+source ~/Developer/Repos/dotfiles/functions.sh
 
 ##
 # PIP
@@ -41,4 +49,3 @@ source /usr/local/opt/autoenv/activate.sh
 # RVM (Ruby enVironment Manager)
 ##
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
