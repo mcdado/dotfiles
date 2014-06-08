@@ -71,6 +71,7 @@ function getsite () {
   --adjust-extension \
   "$@"
   # --span-hosts \
+  # --domain-list=labs.oreilly.com,cloudfront.net,mathjax.org,amazonaws.com \
   # --wait=5 --limit-rate=300K \
   # --no-clobber \
   # --user-agent="" \
