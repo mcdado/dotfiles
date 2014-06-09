@@ -1,9 +1,9 @@
 ##
 # Globals
 ##
-readonly PROGNAME=$(basename $0)
-readonly PROGDIR=$(readlink -m $(dirname $0))
-readonly ARGS="$@"
+# readonly PROGNAME=$(basename $0)
+# readonly PROGDIR=$(readlink -m $(dirname $0))
+# readonly ARGS="$@"
 
 ##
 # Environment variables
