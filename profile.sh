@@ -34,13 +34,13 @@ source ~/Developer/Repos/dotfiles/functions.sh
 #
 export WORKON_HOME=$HOME/.pip/virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
+# Cache pip-installed packages to avoid re-downloading
+export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 # pip should only run if there is a virtualenv currently activated
 export PIP_REQUIRE_VIRTUALENV=true
-# cache pip-installed packages to avoid re-downloading
-export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
-# how do we install or upgrade a global package? We can temporarily turn off this restriction
+# Temporarily turn off this restriction to install or upgrade a global package
 function systempip(){
-   PIP_REQUIRE_VIRTUALENV="" pip "$@"
+    PIP_REQUIRE_VIRTUALENV="" pip "$@"
 }
 
 source /usr/local/opt/autoenv/activate.sh
@@ -48,4 +48,6 @@ source /usr/local/opt/autoenv/activate.sh
 ##
 # RVM (Ruby enVironment Manager)
 ##
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
