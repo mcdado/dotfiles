@@ -1,12 +1,12 @@
 # Basic Settings
 #
-fontName         = "Source Code Pro"
-fontSize         = 12
+fontName = "Source Code Pro"
+fontSize = 12
 
 # Extra files to include
 #
 myExtraIncludes = ".tm_properties,.htaccess,.gitignore"
-fileBrowserGlob  = "{*,$myExtraIncludes}"
+fileBrowserGlob = "{*,$myExtraIncludes}"
 include = "{$include,$myExtraIncludes}"
 
 # Hide log, vendor and tmp directories from search popups.
@@ -28,33 +28,40 @@ excludeInFolderSearch = "{$excludeInFolderSearch,$myExtraExcludes}"
 
 # Default editing configuration
 #
-softWrap         = false
-softTabs         = true
-tabSize          = 2
+softWrap = false
+softTabs = true
+tabSize  = 4
 
 # File type specific configuration
 #
 [ text ]
-showInvisibles   = true
+softWrap = true
+softTabs = true
+showInvisibles = true
+
+[ *.{txt,md,mdown,markdown} ]
+softWrap = true
+softTabs = true
+showInvisibles = true
 
 [ .git/COMMIT_EDITMSG ]
-spellChecking    = true
+spellChecking = true
 spellingLanguage = 'en'
 
 [ *.{icns,ico,jpg,jpeg,m4v,nib,pdf,png,psd,pyc,rtf,tif,tiff,xib} ]
-binary           = true
+binary = true
 
 [ source ]
-softTabs         = true
-tabSize          = 4
+softTabs = true
+tabSize  = 4
 
 [ source.python ]
-softTabs         = true
-tabSize          = 4
+softTabs = true
+tabSize  = 4
 
 [ source.ruby ]
-softTabs         = true
-tabSize          = 2
+softTabs = true
+tabSize  = 2
 
 [ "{README,INSTALL,LICENSE,TODO}" ]
-fileType         = "text.plain"
+fileType = "text.plain"
