@@ -1,7 +1,7 @@
 {
-  browser: true,
-  devel: true,
-  plusplus: false,
-  newcap: true,
-  predef: ["window", "document", "jQuery", "$"]
+  "browser" : true,
+  "devel" : true,
+  "plusplus" : false,
+  "newcap" : true,
+  "predef" : ["window", "document", "jQuery", "$"]
 }
