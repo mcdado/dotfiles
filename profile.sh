@@ -12,7 +12,8 @@ export LANG=en_US.UTF-8
 export EDITOR="mate -w"
 export GIT_EDITOR="mate --name 'Git Commit Message' -w -l 1"
 export PS1='\[\e[1m\]\w \$\[\e[0m\] '
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/opt/go/libexec/bin"
+export GOPATH="$HOME/Developer/go"
 
 ##
 # Bash completion
