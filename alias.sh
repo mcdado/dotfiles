@@ -16,7 +16,7 @@ alias sleepscreen="osascript -e 'tell application \"System Events\" to sleep'"
 
 alias myip="dig myip.opendns.com @resolver1.opendns.com +short"
 
-alias speedtest='wget -O /dev/null http://speedtest.reliableservers.com/100MBtest.bin'
+alias speedevnulltest='wget -O /dev/null http://speedtest.reliableservers.com/100MBtest.bin'
 
 alias brup='brew update && echo "$(tput bold)Outdated packages: $(tput sgr0)    (brew upgrade to fix)" && brew outdated'
 
@@ -45,3 +45,7 @@ echo "Open With has been rebuilt, Finder will relaunch"'
 # Visualise Git Log
 alias git-log-tree='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
 alias git-log="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+# Disk usage
+alias sizes="du -sh * | sort -n"
+alias sizesdir="du -sh */ | sort -n"
