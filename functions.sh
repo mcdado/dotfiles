@@ -106,7 +106,7 @@ function dash() {
   open "dash://$*"
 }
 function dman() {
-  open "dash://manpages:$*"
+  open "dash://man:$*"
 }
 
 change_owner_of_file() {
