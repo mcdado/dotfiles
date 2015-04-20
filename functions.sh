@@ -97,8 +97,14 @@ function imgsize() {
 
 # encode a given image file as base64 and output css background property to clipboard
 function 64enc() {
-  openssl base64 -in $1 | awk -v ext="${1#*.}" '{ str1=str1 $0 }END{ print "background:url(data:image/"ext";base64,"str1");" }'|pbcopy
+  openssl base64 -in $1 | awk -v ext="${1#*.}" '{ str1=str1 $0 }END{ print "background:url(data:image/"ext";base64,"str1");" }' | pbcopy
   echo "$1 encoded to clipboard"
+}
+
+# Select diceware words for passphrases as seen on http://leancrew.com/all-this/2015/04/passphrases-via-shell-pipeline/
+# needs coreutils from brew
+function diceware() {
+  tr -cs A-Za-z '\n' < $1  | tr A-Z a-z | sort | uniq | gshuf --random-source=/dev/random -n6
 }
 
 # Open argument in Dash
