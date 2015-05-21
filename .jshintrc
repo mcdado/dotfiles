@@ -1,7 +1,7 @@
 {
   "browser" : true,
+  "jquery" : true,
+  "curly" : true,
   "devel" : true,
-  "plusplus" : false,
-  "newcap" : true,
-  "predef" : ["window", "document", "jQuery", "$"]
+  "plusplus" : false
 }
