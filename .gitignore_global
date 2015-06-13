@@ -1,4 +1,4 @@
-# git config --global core.excludesfile ~/Developer/Repos/dotfiles/.gitignore_global
+*~
 
 .DS_Store
 .DS_Store?
