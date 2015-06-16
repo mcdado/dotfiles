@@ -2,6 +2,7 @@
 #
 fontName = "Office Code Pro Light"
 fontSize = 13
+lineEndings = '\n'
 
 # Extra files to include
 #
