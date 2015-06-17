@@ -39,3 +39,17 @@
 	clean = git lfs clean %f
 	smudge = git lfs smudge %f
 	required = true
+[alias]
+	lol = log --oneline --all --decorate --full-history --color
+	tree = log --oneline --all --decorate --full-history --color --graph
+	new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+	whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+	df = diff
+	dc = diff --cached
+	lg = log -p
+	who = shortlog -s --
+	untrack = rm --cache --
