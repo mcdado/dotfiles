@@ -54,3 +54,4 @@
 	lg = log -p
 	who = shortlog -s --
 	untrack = rm --cache --
+	dt = difftool
