@@ -24,24 +24,16 @@ fi
 source $(brew --prefix)/Library/Contributions/brew_bash_completion.sh
 
 ##
+# Ruby Gems
+##
+
+if which ruby >/dev/null && which gem >/dev/null; then
+    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
+
+##
 # Other Bash files
 ##
 source ~/Developer/Repos/dotfiles/alias.sh
 source ~/Developer/Repos/dotfiles/functions.sh
 
-##
-# PIP
-##
-#
-export WORKON_HOME=$HOME/.pip/virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
-# Cache pip-installed packages to avoid re-downloading
-export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
-# pip should only run if there is a virtualenv currently activated
-export PIP_REQUIRE_VIRTUALENV=true
-# Temporarily turn off this restriction to install or upgrade a global package
-function systempip(){
-    PIP_REQUIRE_VIRTUALENV="" pip "$@"
-}
-
-source /usr/local/opt/autoenv/activate.sh
