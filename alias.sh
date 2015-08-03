@@ -1,5 +1,6 @@
-alias la="ls -lhAG"             # -F
-alias lm="la -t"                # by last modified
+alias ll="ls -lhAG"
+alias la="ll -F"                # for muscle memory fallback
+alias lm="ll -t"                # by last modified
 alias md="mkdir -p"             # make a nested dir
 alias speak='say -v "Daniel" '
 alias parla='say -v "Luca" '
