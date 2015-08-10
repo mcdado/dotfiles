@@ -19,7 +19,7 @@
 	prompt = false
 [difftool "sourcetree"]
 	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
@@ -51,7 +51,8 @@
 	co = checkout
 	df = diff
 	dc = diff --cached
+	dt = difftool
 	lg = log -p
 	who = shortlog -s --
 	untrack = rm --cache --
-	dt = difftool
+	unstage = reset HEAD --
