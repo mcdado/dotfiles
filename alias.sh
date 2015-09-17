@@ -37,9 +37,8 @@ alias  ytl360="ytl -f best[height=360]"
 
 alias yt-audio="yt -f bestaudio"
 
-# Visualise Git Log
-# alias git-log-tree='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
-# alias git-log="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+# Git related
+alias git-line-count="git ls-files | xargs cat | wc -l"
 
 # Disk usage
 alias sizes="du -sh * | sort -n"
