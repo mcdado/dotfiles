@@ -9,8 +9,9 @@
 # Environment variables
 ##
 export LANG=en_US.UTF-8
-export EDITOR="mate -w"
-export GIT_EDITOR="mate --name 'Git Commit Message' -w -l 1"
+export EDITOR="nano"
+# export GIT_EDITOR="mate -w -l 1 --name 'Git Commit Message'"
+export GIT_EDITOR="subl -w"
 export PS1='\[\e[1m\]\w \$\[\e[0m\] '
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/opt/go/libexec/bin"
 export GOPATH="$HOME/Developer/go"

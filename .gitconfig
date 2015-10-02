@@ -2,7 +2,6 @@
 	name = David Gasperoni
 	email = mcdado@gmail.com
 [core]
-	editor = edit
 	excludesFile = /Users/David/.gitignore_global
 	autocrlf = input
 [merge]
