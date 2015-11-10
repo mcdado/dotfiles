@@ -12,7 +12,7 @@ function aa() {
 }
 
 # make a dir and cd into it
-function mkd() {
+function mkcd() {
   mkdir -p $1
   cd $1
 }
