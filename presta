@@ -1,0 +1,107 @@
+#!/bin/bash
+#
+# PrestaShop Development Scripts
+# To install, symlink this file to a directory that is in your $PATH
+# and make sure it's executable
+# 
+# For example:
+# chmod u+x /path/to/this/file
+# ln -s /path/to/this/file /usr/local/bin/presta
+#
+# Copyright (c) 2015 David Gasperoni
+#
+
+readonly program="Presta Development"
+readonly bold=$(tput bold)
+readonly normal=$(tput sgr0)
+
+about() {
+  cat <<EOF
+$program 0.1
+Copyright (c) 2015 David Gasperoni
+EOF
+  exit 0
+}
+
+usage() {
+  cat <<EOF
+$program
+
+Convenience scripts to help developing PrestaShop modules
+Usage: presta [command]
+  
+  Commands:
+    ${bold}--help${normal}  display this help and exit
+  
+ ${bold}--version${normal}  output version information and exit
+  
+      ${bold}test${normal}  Copy the working directory to the staging environments defined
+            in ~/.prestarc file. You can list several paths to different
+            local installations of PrestaShop. 
+
+     ${bold}build${normal}  Build a zip file from the current directory that
+            will be saved as ./dist/latest-{directory name}.zip
+            You can then give it the prefix "v{version number}-" yourself.
+            (unimplemented) 
+  
+  ${bold}validate${normal}  Validate the current working directory using PrestaShop's own
+            validation service. To be able to use PrestaShop Validator you need to
+            generate a Validation API key at https://validator.prestashop.com/user
+            and add it to ~/.prestarc configuration file.
+            (unimplemented)
+EOF
+}
+
+stage() {
+  
+  if [[ -a ~/.prestarc ]]; then
+    source ~/.prestarc
+  else
+    die "First copy .prestarc to your home directory"
+  fi
+
+  if [[ ! -a ~/.prestarc-rsync ]]; then
+    die "To test you have to copy or symlink ${bold}.prestarc-rsync${normal} to your home directory"
+  fi
+  
+  local PROJECTNAME="$(basename $(pwd))"
+  if [[ ! -f "$PROJECTNAME.php" ]]; then
+    die "No .php file with the same as folder.\nAre you sure that you are in the right folder?"
+  fi
+  
+  echo $(date)
+  echo "Staging locally on ${bold}$(hostname)${normal} for ${bold}$(whoami)${normal}"
+  local COUNTER=0
+  local RSYNCRC="$(dirname ~/.prestarc-rsync)"
+  for PSI in ${PRESTA_INSTALLS[@]}; do
+    rsync -a --delete-excluded --exclude-from=$RSYNCRC/.prestarc-rsync $(pwd) $PSI/modules/
+    COUNTER=$((COUNTER+1))
+  done
+  
+  if [ $COUNTER = 0 ]; then
+    echo "No PrestaShop installations found in .prestarc"
+  else
+    echo "Staging complete in ${bold}$COUNTER${normal} PrestaShop installations"
+  fi
+}
+
+die() {
+  echo -e "$program: $1" >&2
+  exit ${2:-1}
+}
+
+case $1 in
+    --help|-h)
+        usage
+        ;;
+    --version|-v)
+        about
+        ;;
+    stage|test)
+        stage
+        ;;
+    build)
+        build
+        ;;
+esac
+

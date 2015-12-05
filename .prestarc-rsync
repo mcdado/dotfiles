@@ -1,0 +1,26 @@
+#
+# Symlink this file to your home directory
+# ln -s /path/to/this/file/.prestarc-rsync ~/.prestarc-rsync
+#
+
+# Meta (legacy)
+- build.sh
+- stage.sh
+- .rsyncrc
+
+# Repo itself
+- .git
+- .gitignore
+
+# Distribution Packages
+- dist/
+
+# Other files
+- */.DS_Store
+- .editorconfig
+- .tm_properties
+- .jscsrc
+- todo.md
+- TODO.md
+- config.xml
+- test.*

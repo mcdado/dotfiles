@@ -1,0 +1,20 @@
+#
+# Copy this file to your home directory
+# cp /path/to/this/file/.prestarc ~/.prestarc
+#
+
+#
+# Uncomment and replace with the paths to your
+# different local installations of PrestaShop
+#
+PRESTA_INSTALLS=(
+ # '/Users/USERNAME/Sites/prestashop1411'
+ # '/Users/USERNAME/Sites/prestashop1562'
+ # '/Users/USERNAME/Sites/prestashop16014'
+)
+
+#
+# Obtain this key at https://validator.prestashop.com/user
+# and add it here:
+#
+PRESTA_VALIDATOR_KEY=""
