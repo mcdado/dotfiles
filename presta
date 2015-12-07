@@ -14,6 +14,7 @@
 readonly program="Presta Development"
 readonly bold=$(tput bold)
 readonly normal=$(tput sgr0)
+RSYNCRC="$(dirname ~/.prestarc-rsync)/.prestarc-rsync"
 
 about() {
   cat <<EOF
@@ -72,9 +73,8 @@ stage() {
   echo $(date)
   echo "Staging locally on ${bold}$(hostname)${normal} for ${bold}$(whoami)${normal}"
   local COUNTER=0
-  local RSYNCRC="$(dirname ~/.prestarc-rsync)"
   for PSI in ${PRESTA_INSTALLS[@]}; do
-    rsync -a --delete-excluded --exclude-from=$RSYNCRC/.prestarc-rsync $(pwd) $PSI/modules/
+    rsync -a --delete-excluded --exclude-from=$RSYNCRC $(pwd) $PSI/modules/
     COUNTER=$((COUNTER+1))
   done
   
@@ -83,6 +83,17 @@ stage() {
   else
     echo "Staging complete in ${bold}$COUNTER${normal} PrestaShop installations"
   fi
+}
+
+build() {
+  local FOLDERNAME=$(dirname $(pwd))
+  local PROJNAME=$(basename $(pwd))
+  rsync -a --exclude-from=$RSYNCRC $(pwd) $TMPDIR
+  cd $TMPDIR
+  mkdir -p $FOLDERNAME/$PROJNAME/dist/
+  zip -rq $FOLDERNAME/$PROJNAME/dist/latest-$PROJNAME.zip $PROJNAME
+  cd $FOLDERNAME/$PROJNAME
+  rm -rf $TMPDIR/$PROJNAME
 }
 
 die() {
