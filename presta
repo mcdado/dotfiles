@@ -108,7 +108,7 @@ case $1 in
     --version|-v)
         about
         ;;
-    stage|test)
+    stage)
         stage
         ;;
     build)
