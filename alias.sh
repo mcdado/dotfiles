@@ -2,6 +2,7 @@ alias ll="ls -lhAG"
 alias la="ll -F"                # for muscle memory fallback
 alias lm="ll -t"                # by last modified
 alias md="mkdir -p"             # make a nested dir
+alias ..="cd .."
 alias speak='say -v "Daniel" '
 alias parla='say -v "Luca" '
 alias topcpu="top -o cpu"       # top sorted by cpu usage
