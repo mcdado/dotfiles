@@ -11,7 +11,7 @@
 export LANG=en_US.UTF-8
 export EDITOR="nano"
 # export GIT_EDITOR="mate -w -l 1 --name 'Git Commit Message'"
-export GIT_EDITOR="subl -w"
+export GIT_EDITOR="atom -n -w"
 export PS1='\[\e[1m\]\w \$\[\e[0m\] '
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/opt/go/libexec/bin"
 export GOPATH="$HOME/Developer/go"
