@@ -3,7 +3,7 @@
 # PrestaShop Development Scripts
 # To install, symlink this file to a directory that is in your $PATH
 # and make sure it's executable
-# 
+#
 # For example:
 # chmod u+x /path/to/this/file
 # ln -s /path/to/this/file /usr/local/bin/presta
@@ -30,21 +30,21 @@ $program
 
 Convenience scripts to help developing PrestaShop modules
 Usage: presta [command]
-  
+
   Commands:
     ${bold}--help${normal}  display this help and exit
-  
+
  ${bold}--version${normal}  output version information and exit
-  
+
       ${bold}test${normal}  Copy the working directory to the staging environments defined
             in ~/.prestarc file. You can list several paths to different
-            local installations of PrestaShop. 
+            local installations of PrestaShop.
 
      ${bold}build${normal}  Build a zip file from the current directory that
             will be saved as ./dist/latest-{directory name}.zip
             You can then give it the prefix "v{version number}-" yourself.
-            (unimplemented) 
-  
+            (unimplemented)
+
   ${bold}validate${normal}  Validate the current working directory using PrestaShop's own
             validation service. To be able to use PrestaShop Validator you need to
             generate a Validation API key at https://validator.prestashop.com/user
@@ -53,8 +53,7 @@ Usage: presta [command]
 EOF
 }
 
-stage() {
-  
+check_directory() {
   if [[ -a ~/.prestarc ]]; then
     source ~/.prestarc
   else
@@ -64,12 +63,17 @@ stage() {
   if [[ ! -a ~/.prestarc-rsync ]]; then
     die "To test you have to copy or symlink ${bold}.prestarc-rsync${normal} to your home directory"
   fi
-  
+
   local PROJECTNAME="$(basename $(pwd))"
   if [[ ! -f "$PROJECTNAME.php" ]]; then
     die "No .php file with the same as folder.\nAre you sure that you are in the right folder?"
   fi
-  
+
+}
+
+stage() {
+  check_directory
+
   echo $(date)
   echo "Staging locally on ${bold}$(hostname)${normal} for ${bold}$(whoami)${normal}"
   local COUNTER=0
@@ -77,7 +81,7 @@ stage() {
     rsync -a --delete-excluded --exclude-from=$RSYNCRC $(pwd) $PSI/modules/
     COUNTER=$((COUNTER+1))
   done
-  
+
   if [ $COUNTER = 0 ]; then
     echo "No PrestaShop installations found in .prestarc"
   else
@@ -86,6 +90,8 @@ stage() {
 }
 
 build() {
+  check_directory
+
   local FOLDERNAME=$(dirname $(pwd))
   local PROJNAME=$(basename $(pwd))
   rsync -a --exclude-from=$RSYNCRC $(pwd) $TMPDIR
@@ -115,4 +121,3 @@ case $1 in
         build
         ;;
 esac
-
