@@ -50,7 +50,10 @@ Usage: presta [command]
             validation service. To be able to use PrestaShop Validator you need to
             generate a Validation API key at https://validator.prestashop.com/user
             and add it to ~/.prestarc configuration file.
-            (unimplemented)
+            This step requires ${bold}json-tidy${normal}, downloadable via ${bold}npm${normal}.
+            Add ${bold}--save${normal} or ${bold}--save-report${normal} to save the report of validation to
+            the Desktop instead of outputting it to stdout.
+
 EOF
 }
 
@@ -109,6 +112,31 @@ build() {
   rm -rf $TMPDIR/$PROJNAME
 }
 
+validate() {
+  check_directory
+
+  local ENDPOINT="https://validator.prestashop.com/api/modules"
+  local KEY=$PRESTA_VALIDATOR_KEY
+
+  local FOLDERNAME=$(dirname $(pwd))
+  local PROJNAME=$(basename $(pwd))
+
+  rsync -a --exclude-from=$RSYNCRC $(pwd) $TMPDIR
+  cd $TMPDIR
+  zip -rq $PROJNAME.zip $PROJNAME
+  cd $FOLDERNAME/$PROJNAME
+
+  if [[ $1 == '-s' ]]; then
+    curl -s -F key=$KEY -F archive=@$TMPDIR$PROJNAME.zip $ENDPOINT | json-tidy > ~/Desktop/$PROJNAME.json
+    echo "Report of validation saved to ~/Desktop/$PROJNAME.json"
+  else
+    curl -s -F key=$KEY -F archive=@$TMPDIR$PROJNAME.zip $ENDPOINT | json-tidy
+  fi
+
+  rm -rf $TMPDIR/$PROJNAME
+  rm -rf $TMPDIR/$PROJNAME.zip
+}
+
 die() {
   echo -e "$program: $1" >&2
   exit ${2:-1}
@@ -129,6 +157,13 @@ case $1 in
       build -v
     else
       build
+    fi
+    ;;
+  validate)
+    if [[ $2 == '--save' || $2 == '--save-report' ]]; then
+      validate -s
+    else
+      validate
     fi
     ;;
 esac
