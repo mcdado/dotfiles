@@ -36,7 +36,7 @@ Usage: presta [command]
 
  ${bold}--version${normal}  output version information and exit
 
-      ${bold}test${normal}  Copy the working directory to the staging environments defined
+     ${bold}stage${normal}  Copy the working directory to the staging environments defined
             in ~/.prestarc file. You can list several paths to different
             local installations of PrestaShop.
 
