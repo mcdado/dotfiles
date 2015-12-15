@@ -42,8 +42,9 @@ Usage: presta [command]
 
      ${bold}build${normal}  Build a zip file from the current directory that
             will be saved as ./dist/latest-{directory name}.zip
-            You can then give it the prefix "v{version number}-" yourself.
-            (unimplemented)
+            You can then rename it with the prefix "v{version number}-" yourself.
+            Alternatively, you can add ${bold}--ver${normal} or ${bold}--add-version${normal} at the end
+            to automatically add version number to the filename.
 
   ${bold}validate${normal}  Validate the current working directory using PrestaShop's own
             validation service. To be able to use PrestaShop Validator you need to
@@ -94,10 +95,16 @@ build() {
 
   local FOLDERNAME=$(dirname $(pwd))
   local PROJNAME=$(basename $(pwd))
+
+  local PREFIX='latest'
+  if [[ $1 == '-v' ]]; then
+    local PREFIX="v$(awk -F"'|\"" '/\$this->version *= */{print $2}' $PROJNAME.php)"
+  fi
+
   rsync -a --exclude-from=$RSYNCRC $(pwd) $TMPDIR
   cd $TMPDIR
   mkdir -p $FOLDERNAME/$PROJNAME/dist/
-  zip -rq $FOLDERNAME/$PROJNAME/dist/latest-$PROJNAME.zip $PROJNAME
+  zip -rq $FOLDERNAME/$PROJNAME/dist/$PREFIX-$PROJNAME.zip $PROJNAME
   cd $FOLDERNAME/$PROJNAME
   rm -rf $TMPDIR/$PROJNAME
 }
@@ -108,16 +115,20 @@ die() {
 }
 
 case $1 in
-    --help|-h)
-        usage
-        ;;
-    --version|-v)
-        about
-        ;;
-    stage)
-        stage
-        ;;
-    build)
-        build
-        ;;
+  --help|-h)
+    usage
+    ;;
+  --version|-v)
+    about
+    ;;
+  stage)
+    stage
+    ;;
+  build)
+    if [[ $2 == '--ver' || $2 == '--add-version' ]]; then
+      build -v
+    else
+      build
+    fi
+    ;;
 esac
