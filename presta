@@ -32,9 +32,9 @@ Convenience scripts to help developing PrestaShop modules
 Usage: presta [command]
 
   Commands:
-    ${bold}--help${normal}  display this help and exit
+      ${bold}help${normal}  Display this help and exit. Also ${bold}--help${normal} or ${bold}-h${normal}.
 
- ${bold}--version${normal}  output version information and exit
+   ${bold}version${normal}  Output version information and exit. Also ${bold}--version${normal} or ${bold}-v${normal}.
 
      ${bold}stage${normal}  Copy the working directory to the staging environments defined
             in ~/.prestarc file. You can list several paths to different
@@ -115,10 +115,10 @@ die() {
 }
 
 case $1 in
-  --help|-h)
+  help|--help|-h)
     usage
     ;;
-  --version|-v)
+  version|--version|-v)
     about
     ;;
   stage)
