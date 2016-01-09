@@ -56,3 +56,5 @@
 	who = shortlog -s --
 	untrack = rm --cache --
 	unstage = reset HEAD --
+	branches = branch -a -vv
+	last = log -1 HEAD
