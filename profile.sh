@@ -48,3 +48,4 @@ DOTFILES_DIR="$( cd -P "$( dirname "$DOTFILES_SOURCE" )" && pwd )"
 
 source $DOTFILES_DIR/colors.sh
 source $DOTFILES_DIR/alias.sh
+source $DOTFILES_DIR/functions.sh
