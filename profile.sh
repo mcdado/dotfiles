@@ -11,13 +11,15 @@
 export LANG=en_US.UTF-8
 export EDITOR="nano"
 # export GIT_EDITOR="mate -w -l 1 --name 'Git Commit Message'"
-export GIT_EDITOR="atom -n -w"
+# export GIT_EDITOR="atom -n -w"
+export GIT_EDITOR=$EDITOR
+export GIT_PAGER="less"
 export PS1='\[\e[1m\]\w \$\[\e[0m\] '
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/opt/go/libexec/bin"
 export GOPATH="$HOME/Developer/go"
 
-HISTSIZE=
-HISTFILESIZE=
+HISTSIZE=5000
+HISTFILESIZE=1000
 
 ##
 # Bash completion
