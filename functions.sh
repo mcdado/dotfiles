@@ -7,8 +7,17 @@ function most-bash() {
 
 # add an alias and reload the bash aliases file
 function aa() {
-  mate -w ~/Developer/Repos/dotfiles/alias.sh
-  source ~/Developer/Repos/dotfiles/profile.sh
+    DOTFILES_SOURCE="${BASH_SOURCE[0]}"
+    # resolve $DOTFILES_SOURCE until the file is no longer a symlink
+    while [ -h "$DOTFILES_SOURCE" ]; do
+        DOTFILES_DIR="$( cd -P "$( dirname "$DOTFILES_SOURCE" )" && pwd )"
+        DOTFILES_SOURCE="$(readlink "$DOTFILES_SOURCE")"
+        # if $DOTFILES_SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+        [[ $DOTFILES_SOURCE != /* ]] && DOTFILES_SOURCE="$DOTFILES_DIR/$DOTFILES_SOURCE"
+    done
+    DOTFILES_DIR="$( cd -P "$( dirname "$DOTFILES_SOURCE" )" && pwd )"
+    $EDITOR $DOTFILES_DIR/profile.sh
+    source $DOTFILES_DIR/profile.sh
 }
 
 # make a dir and cd into it
