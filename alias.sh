@@ -3,8 +3,8 @@ alias la="ll -F"                # for muscle memory fallback
 alias lm="ll -t"                # by last modified
 alias md="mkdir -p"             # make a nested dir
 alias ..="cd .."
-alias speak='say -v "Daniel" '
-alias parla='say -v "Luca" '
+alias speak='say -v Daniel '
+alias parla='say -v Alice '
 alias topcpu="top -o cpu"       # top sorted by cpu usage
 alias topmemory="top -o rsize"  # top sorted by ram usage
 
@@ -22,7 +22,7 @@ alias speedevnulltest='wget -O /dev/null http://speedtest.reliableservers.com/10
 
 alias brup='brew update && echo "$(tput bold)Outdated packages: $(tput sgr0)    (brew upgrade --all to fix)" && brew outdated'
 
-# youtube download
+# Youtube download
 alias yt="youtube-dl -o '%(title)s (%(uploader)s) [%(id)s].%(ext)s' $@"
 alias ytl="youtube-dl -o '%(uploader)s - %(playlist)s/%(playlist_index)s. %(title)s [%(id)s].%(ext)s' $@"
 
