@@ -15,8 +15,8 @@ function aa() {
         [[ $DOTFILES_SOURCE != /* ]] && DOTFILES_SOURCE="$DOTFILES_DIR/$DOTFILES_SOURCE"
     done
     DOTFILES_DIR="$( cd -P "$( dirname "$DOTFILES_SOURCE" )" && pwd )"
-    $EDITOR $DOTFILES_DIR/profile.sh
-    source $DOTFILES_DIR/profile.sh
+    $EDITOR $DOTFILES_DIR/alias.sh
+    source $DOTFILES_DIR/alias.sh
 }
 
 # Make a dir and cd into it.
