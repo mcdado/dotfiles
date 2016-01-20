@@ -1,7 +1,15 @@
 {
-  "browser" : true,
-  "jquery" : true,
-  "curly" : true,
-  "devel" : true,
-  "plusplus" : false
+    "curly": true,
+    "browser": true,
+    "jquery": true,
+    "eqeqeq": false,
+    "-W041": false,
+    "forin": false,
+    "futurehostile": true,
+    "maxerr": 0,
+    "nonbsp": true,
+    "undef": false,
+    "unused": false,
+    "debug": true,
+    "plusplus": false
 }
