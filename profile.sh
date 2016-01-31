@@ -15,8 +15,8 @@ export EDITOR="nano"
 export GIT_EDITOR=$EDITOR
 export GIT_PAGER="less"
 export PS1='\[\e[1m\]\w \$\[\e[0m\] '
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/opt/go/libexec/bin"
 export GOPATH="$HOME/Developer/go"
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin"
 
 HISTSIZE=5000
 HISTFILESIZE=1000
