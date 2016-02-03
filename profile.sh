@@ -10,10 +10,9 @@
 ##
 export LANG=en_US.UTF-8
 export EDITOR="nano"
-# export GIT_EDITOR="mate -w -l 1 --name 'Git Commit Message'"
-# export GIT_EDITOR="atom -n -w"
+export PAGER="less"
 export GIT_EDITOR=$EDITOR
-export GIT_PAGER="less"
+export GIT_PAGER=$PAGER
 export PS1='\[\e[1m\]\w \$\[\e[0m\] '
 export GOPATH="$HOME/Developer/go"
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin"
