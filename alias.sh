@@ -7,20 +7,14 @@ alias speak='say -v Daniel '
 alias parla='say -v Alice '
 alias topcpu="top -o cpu"       # top sorted by cpu usage
 alias topmemory="top -o rsize"  # top sorted by ram usage
-
+alias rot13="echo {a..z} ; echo {n..z} {a..m}"
 alias hs='history | grep --color=auto'
-
-alias wifi="networksetup -setairportpower en1" # use wifi on or wifi off
-
-alias networklisteners='lsof -i -P | grep LISTEN'
-
 alias sleepscreen="osascript -e 'tell application \"System Events\" to sleep'"
 
 alias myip="curl http://ipecho.net/plain ; echo"
-
+alias wifi="networksetup -setairportpower en1" # use wifi on or wifi off
+alias networklisteners='lsof -i -P | grep LISTEN'
 alias speedevnulltest='wget -O /dev/null http://speedtest.reliableservers.com/100MBtest.bin'
-
-alias brup='brew update && echo "$(tput bold)Outdated packages: $(tput sgr0)    (brew upgrade --all to fix)" && brew outdated'
 
 # Youtube download
 alias yt="youtube-dl -o '%(title)s (%(uploader)s) [%(id)s].%(ext)s' $@"
