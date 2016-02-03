@@ -44,7 +44,7 @@
 	tree = log --oneline --all --decorate --full-history --color --graph
 	new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
 	whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
-	pushall = "!git remote | xargs -n 1 git push"
+	pushtoall = "!git remote | xargs -n 1 git push"
 	st = status
 	ci = commit
 	br = branch
