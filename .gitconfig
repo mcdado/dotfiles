@@ -45,7 +45,6 @@
 	new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
 	whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
 	pushall = "!git remote | xargs -n 1 git push"
-	fetchall = "!git remote | xargs -n 1 git fetch"
 	st = status
 	ci = commit
 	br = branch
