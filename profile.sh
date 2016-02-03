@@ -20,6 +20,20 @@ export PATH="/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/opt/go/libexec/bin:
 HISTSIZE=5000
 HISTFILESIZE=1000
 
+# less options
+# from <https://github.com/denysdovhan/dotfiles/blob/master/tilde/zshrc.zsh>
+less_opts=(
+  # Quit if entire file fits on first screen.
+  --quit-if-one-screen
+  # Ignore case in searches that do not contain uppercase.
+  --ignore-case
+  # Allow ANSI colour escapes, but no other escapes.
+  --RAW-CONTROL-CHARS
+  # Quiet the terminal bell (but still flash). (when trying to scroll past the end of the buffer)
+  --quiet
+)
+export LESS=${less_opts[*]}
+
 ##
 # Bash completion
 ##
