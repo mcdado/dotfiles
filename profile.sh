@@ -23,8 +23,6 @@ HISTFILESIZE=1000
 # less options
 # from <https://github.com/denysdovhan/dotfiles/blob/master/tilde/zshrc.zsh>
 less_opts=(
-  # Quit if entire file fits on first screen.
-  --quit-if-one-screen
   # Ignore case in searches that do not contain uppercase.
   --ignore-case
   # Allow ANSI colour escapes, but no other escapes.
