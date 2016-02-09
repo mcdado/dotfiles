@@ -14,7 +14,11 @@
 readonly program="Presta Development"
 readonly bold=$(tput bold)
 readonly normal=$(tput sgr0)
-RSYNCRC="$(dirname ~/.prestarc-rsync)/.prestarc-rsync"
+if [[ -f .rsyncrc ]]; then
+    RSYNCRC="$PWD/.rsyncrc"
+else
+    RSYNCRC="$(dirname ~/.prestarc-rsync)/.prestarc-rsync"
+fi
 
 about() {
   cat <<EOF
@@ -58,13 +62,13 @@ EOF
 }
 
 check_directory() {
-  if [[ -a ~/.prestarc ]]; then
+  if [[ -f ~/.prestarc ]]; then
     source ~/.prestarc
   else
     die "First copy .prestarc to your home directory"
   fi
 
-  if [[ ! -a ~/.prestarc-rsync ]]; then
+  if [[ ! -f ~/.prestarc-rsync ]]; then
     die "To test you have to copy or symlink ${bold}.prestarc-rsync${normal} to your home directory"
   fi
 
