@@ -19,6 +19,7 @@
 - */.DS_Store
 - .editorconfig
 - .tm_properties
+- .jshintrc
 - .jscsrc
 - todo.md
 - TODO.md
