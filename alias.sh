@@ -16,6 +16,9 @@ alias wifi="networksetup -setairportpower en1" # use wifi on or wifi off
 alias networklisteners='lsof -i -P | grep LISTEN'
 alias speedevnulltest='wget -O /dev/null http://speedtest.reliableservers.com/100MBtest.bin'
 
+# Prefer htop over top
+if [[ -x `which htop` ]]; then alias top="htop"; fi
+
 # Youtube download
 alias yt="youtube-dl -o '%(title)s (%(uploader)s) [%(id)s].%(ext)s' $@"
 alias ytl="youtube-dl -o '%(uploader)s - %(playlist)s/%(playlist_index)s. %(title)s [%(id)s].%(ext)s' $@"
@@ -33,6 +36,7 @@ alias  ytl360="ytl -f best[height=360]"
 alias yt-audio="yt -f bestaudio"
 
 # Git related
+alias g="git"
 alias git-line-count="git ls-files | xargs cat | wc -l"
 
 # Disk usage
