@@ -17,11 +17,47 @@ export PS1='\[\e[1m\]\w \$\[\e[0m\] '
 export GOPATH="$HOME/Developer/go"
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin"
 
-HISTSIZE=5000
-HISTFILESIZE=1000
+##
+# Bash defaults
+# from <https://github.com/mrzool/bash-sensible>
+##
 
+# This defines where cd looks for targets
+# Add the directories you want to have fast access to, separated by colon
+CDPATH=".:~:~/Repos:~/Sites"
+
+# Append to the history file, don't overwrite it
+shopt -s histappend
+
+# Save multi-line commands as one command
+shopt -s cmdhist
+
+# Record each line as it gets issued
+PROMPT_COMMAND='history -a'
+
+# Huge history. Doesn't appear to slow things down, so why not?
+HISTSIZE=50000
+HISTFILESIZE=10000
+
+# Avoid duplicate entries
+HISTCONTROL="erasedups:ignoreboth"
+
+# Don't record some commands
+export HISTIGNORE="&:[ ]*:exit:bg:fg:history:clear"
+
+# Useful timestamp format
+HISTTIMEFORMAT='%F %T '
+
+# Bash completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    source $(brew --prefix)/etc/bash_completion
+fi
+source $(brew --prefix)/Library/Contributions/brew_bash_completion.sh
+
+##
 # less options
 # from <https://github.com/denysdovhan/dotfiles/blob/master/tilde/zshrc.zsh>
+##
 less_opts=(
   # Ignore case in searches that do not contain uppercase.
   --ignore-case
@@ -31,14 +67,6 @@ less_opts=(
   --quiet
 )
 export LESS=${less_opts[*]}
-
-##
-# Bash completion
-##
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    source $(brew --prefix)/etc/bash_completion
-fi
-source $(brew --prefix)/Library/Contributions/brew_bash_completion.sh
 
 ##
 # Ruby Gems

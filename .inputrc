@@ -1,4 +1,13 @@
 "\e[A": history-search-backward
 "\e[B": history-search-forward
+"\e[C": forward-char
+"\e[D": backward-char
+
+# Display matches for ambiguous patterns at first tab press
 set show-all-if-ambiguous on
+
+# Treat hyphens and underscores as equivalent
+set completion-map-case on
+
+# Perform file completion in a case insensitive fashion
 set completion-ignore-case on
