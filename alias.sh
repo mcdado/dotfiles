@@ -36,8 +36,9 @@ alias  ytl360="ytl -f best[height=360]"
 alias yt-audio="yt -f bestaudio"
 
 # Git related
-alias g="git"
 alias git-line-count="git ls-files | xargs cat | wc -l"
+alias g="git"
+complete -o default -o nospace -F _git g
 
 # Disk usage
 alias sizes="du -sh * | sort -n"
