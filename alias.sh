@@ -23,6 +23,9 @@ if [[ -x `which htop` ]]; then alias top="htop"; fi
 alias yt="youtube-dl -o '%(title)s (%(uploader)s) [%(id)s].%(ext)s' $@"
 alias ytl="youtube-dl -o '%(uploader)s - %(playlist)s/%(playlist_index)s. %(title)s [%(id)s].%(ext)s' $@"
 
+alias yt-best="yt -f best"
+alias ytl-best="ytl -f best"
+
 alias yt1080="yt -f best[height=1080]"
 alias  yt720="yt -f best[height=720]"
 alias  yt480="yt -f best[height=480]"
