@@ -40,11 +40,6 @@
 	smudge = git lfs smudge %f
 	required = true
 [alias]
-	lol = log --oneline --all --decorate --full-history --color
-	tree = log --oneline --all --decorate --full-history --color --graph
-	new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
-	whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
-	pushtoall = "!git remote | xargs -n 1 git push"
 	st = status
 	ci = commit
 	br = branch
@@ -53,8 +48,20 @@
 	dc = diff --cached
 	dt = difftool
 	lg = log -p
+	lol = log --oneline --all --decorate --full-history --color
+	tree = log --graph --oneline --all --decorate --full-history --color
+	last = log -1 HEAD
+	new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
 	who = shortlog -s --
+	whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
+	pushtoall = "!git remote | xargs -n 1 git push"
+	tags = tag
+	branches = branch -a -vv
+	stashes = stash list
+	remotes = remote -v
+	precommit = diff --cached --diff-algorithm=minimal -w
+	uncommit = reset --mixed HEAD~
+	discard = checkout --
 	untrack = rm --cache --
 	unstage = reset HEAD --
-	branches = branch -a -vv
-	last = log -1 HEAD
+	nuke = !git reset --hard HEAD && git clean -d -f
