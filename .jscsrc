@@ -4,7 +4,6 @@
         more `requireCurlyBraces`,
         false `disallowQuotedKeysInObjects`,
         false `safeContextKeyword`", */
-    "esnext": true,
     "disallowSpacesInNamedFunctionExpression": {
         "beforeOpeningRoundBrace": true
     },
