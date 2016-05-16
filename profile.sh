@@ -33,7 +33,7 @@ shopt -s histappend
 shopt -s cmdhist
 
 # Record each line as it gets issued
-PROMPT_COMMAND='history -a'
+PROMPT_COMMAND='history -a;update_terminal_cwd'
 
 # Huge history. Doesn't appear to slow things down, so why not?
 HISTSIZE=50000
