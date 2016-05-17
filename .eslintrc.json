@@ -1,0 +1,46 @@
+{
+  "extends": "eslint:recommended",
+  "env": {
+    "browser": true,
+    "jquery": true
+  },
+  "rules": {
+    "camelcase": [
+      "off"
+    ],
+    "comma-dangle": [
+      "warn",
+      "only-multiline"
+    ],
+    "curly": [
+      "error",
+      "all"
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "no-undef": [
+      "warn"
+    ],
+    "no-unused-vars": [
+      "warn",
+      {
+        "args": "none"
+      }
+    ],
+    "no-use-before-define": [
+      "error",
+      {
+        "functions": false
+      }
+    ],
+    "quote-props": [
+      "warn",
+      "consistent",
+      {
+        "unnecessary": false
+      }
+    ]
+  }
+}
