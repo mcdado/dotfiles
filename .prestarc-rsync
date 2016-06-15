@@ -12,8 +12,9 @@
 - .git
 - .gitignore
 
-# Distribution Packages
+# Directories to exclude
 - dist/
+- deps/
 
 # Other files
 - */.DS_Store
