@@ -170,3 +170,22 @@ fk () {
     done
     unset IFS
 }
+
+# http://frantic.im/notify-on-completion
+function f_notifyme {
+  LAST_EXIT_CODE=$?
+  CMD=$(fc -ln -1)
+
+  DOTFILES_SOURCE="${BASH_SOURCE[0]}"
+  # resolve $DOTFILES_SOURCE until the file is no longer a symlink
+  while [ -h "$DOTFILES_SOURCE" ]; do
+      DOTFILES_DIR="$( cd -P "$( dirname "$DOTFILES_SOURCE" )" && pwd )"
+      DOTFILES_SOURCE="$(readlink "$DOTFILES_SOURCE")"
+      # if $DOTFILES_SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+      [[ $DOTFILES_SOURCE != /* ]] && DOTFILES_SOURCE="$DOTFILES_DIR/$DOTFILES_SOURCE"
+  done
+  DOTFILES_DIR="$( cd -P "$( dirname "$DOTFILES_SOURCE" )" && pwd )"
+
+  # No point in waiting for the command to complete
+  ./notify-on-completion.applescript "$CMD" "$LAST_EXIT_CODE" &
+}

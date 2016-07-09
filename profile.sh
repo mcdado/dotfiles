@@ -17,6 +17,9 @@ export PS1='\[\e[1m\]\w \$\[\e[0m\] '
 export GOPATH="$HOME/Developer/go"
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin"
 
+# http://frantic.im/notify-on-completion
+export PS1='$(f_notifyme)'$PS1
+
 ##
 # Bash defaults
 # from <https://github.com/mrzool/bash-sensible>
