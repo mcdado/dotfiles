@@ -187,5 +187,5 @@ function f_notifyme {
   DOTFILES_DIR="$( cd -P "$( dirname "$DOTFILES_SOURCE" )" && pwd )"
 
   # No point in waiting for the command to complete
-  ./notify-on-completion.applescript "$CMD" "$LAST_EXIT_CODE" &
+  $DOTFILES_DIR/notify-on-completion.applescript "$CMD" "$LAST_EXIT_CODE" &
 }
