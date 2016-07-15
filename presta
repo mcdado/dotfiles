@@ -108,7 +108,7 @@ build() {
     local PREFIX="v$(awk -F"'|\"" '/\$this->version *= */{print $2}' $PROJNAME.php)"
   fi
 
-  rsync -a --exclude-from=$RSYNCRC $(pwd) $TMPDIR
+  rsync -a --delete-excluded --exclude-from=$RSYNCRC $(pwd) $TMPDIR
   cd $TMPDIR
   mkdir -p $FOLDERNAME/$PROJNAME/dist/
   zip -rq $FOLDERNAME/$PROJNAME/dist/$PREFIX-$PROJNAME.zip $PROJNAME
@@ -125,7 +125,7 @@ validate() {
   local FOLDERNAME=$(dirname $(pwd))
   local PROJNAME=$(basename $(pwd))
 
-  rsync -a --exclude-from=$RSYNCRC $(pwd) $TMPDIR
+  rsync -a --delete-excluded --exclude-from=$RSYNCRC $(pwd) $TMPDIR
   cd $TMPDIR
   zip -rq $PROJNAME.zip $PROJNAME
   cd $FOLDERNAME/$PROJNAME
