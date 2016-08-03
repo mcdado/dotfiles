@@ -17,7 +17,7 @@
 - deps/
 
 # Other files
-- */.DS_Store
+- .DS_Store
 - .editorconfig
 - .tm_properties
 - .eslintrc*
@@ -26,4 +26,3 @@
 - todo.md
 - TODO.md
 - config.xml
-- test.*
