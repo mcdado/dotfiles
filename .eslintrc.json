@@ -42,6 +42,11 @@
       {
         "unnecessary": false
       }
+    ],
+    "radix": [
+      "warn",
+      "always"
     ]
+
   }
 }
