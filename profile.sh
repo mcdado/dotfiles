@@ -53,7 +53,7 @@ HISTTIMEFORMAT='%F %T '
 
 # Bash completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    source $(brew --prefix)/etc/bash_completion
+  source $(brew --prefix)/etc/bash_completion
 fi
 
 ##
@@ -74,7 +74,7 @@ export LESS=${less_opts[*]}
 # Ruby Gems
 ##
 if which ruby >/dev/null && which gem >/dev/null; then
-    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+  PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
 ##
@@ -83,10 +83,10 @@ fi
 DOTFILES_SOURCE="${BASH_SOURCE[0]}"
 # resolve $DOTFILES_SOURCE until the file is no longer a symlink
 while [ -h "$DOTFILES_SOURCE" ]; do
-    DOTFILES_DIR="$( cd -P "$( dirname "$DOTFILES_SOURCE" )" && pwd )"
-    DOTFILES_SOURCE="$(readlink "$DOTFILES_SOURCE")"
-    # if $DOTFILES_SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
-    [[ $DOTFILES_SOURCE != /* ]] && DOTFILES_SOURCE="$DOTFILES_DIR/$DOTFILES_SOURCE"
+  DOTFILES_DIR="$( cd -P "$( dirname "$DOTFILES_SOURCE" )" && pwd )"
+  DOTFILES_SOURCE="$(readlink "$DOTFILES_SOURCE")"
+  # if $DOTFILES_SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+  [[ $DOTFILES_SOURCE != /* ]] && DOTFILES_SOURCE="$DOTFILES_DIR/$DOTFILES_SOURCE"
 done
 DOTFILES_DIR="$( cd -P "$( dirname "$DOTFILES_SOURCE" )" && pwd )"
 
