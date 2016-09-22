@@ -5,6 +5,15 @@
 # readonly PROGDIR=$(readlink -m $(dirname $0))
 # readonly ARGS="$@"
 
+# Fix the problem where non-AppleTerminal shells would not find `update_terminal_cwd`
+if [[ -f /etc/bashrc_Apple_Terminal ]]; then
+  source /etc/bashrc_Apple_Terminal
+  PROMPT_COMMAND='history -a;update_terminal_cwd'
+else
+  # Record each line as it gets issued
+  PROMPT_COMMAND='history -a'
+fi
+
 ##
 # Environment variables
 ##
@@ -35,8 +44,6 @@ shopt -s histappend
 # Save multi-line commands as one command
 shopt -s cmdhist
 
-# Record each line as it gets issued
-PROMPT_COMMAND='history -a;update_terminal_cwd'
 
 # Huge history. Doesn't appear to slow things down, so why not?
 HISTSIZE=50000
