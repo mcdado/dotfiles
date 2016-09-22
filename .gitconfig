@@ -53,7 +53,7 @@
 	tree = log --graph --oneline --all --decorate --full-history --color
 	last = log -1 HEAD
 	new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
-	who = shortlog -s --
+	who = shortlog -sn --
 	whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
 	pushtoall = "!git remote | xargs -n 1 git push"
 	tags = tag
