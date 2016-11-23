@@ -63,6 +63,10 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   source $(brew --prefix)/etc/bash_completion
 fi
 
+# Don't use /etc/hosts for ssh autocomplete
+# from <https://techblog.willshouse.com/2013/12/09/ssh-autocompletion-disable-using-etchosts-brew/>
+export COMP_KNOWN_HOSTS_WITH_HOSTFILE=""
+
 ##
 # less options
 # from <https://github.com/denysdovhan/dotfiles/blob/master/tilde/zshrc.zsh>
