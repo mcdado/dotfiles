@@ -202,3 +202,44 @@ man() {
   LESS_TERMCAP_us=$(printf "\e[1;32m") \
   man "$@"
 }
+
+function presta-deploy {
+  local PROJECTNAME="$(basename $(pwd))"
+  local readonly bold=$(tput bold)
+  local readonly normal=$(tput sgr0)
+  local CHOSEN_ENVIRONMENT
+
+  if [[ ! -f "$PROJECTNAME.php" ]]; then
+    echo "No .php file with the same as folder. Are you sure that you are in the right folder?"
+    return
+  fi
+
+  if [[ ! -f ~/.prestarc ]]; then
+    echo "No .rsyncrc file in your home"
+    return
+  else
+    source ~/.prestarc
+  fi
+
+  if [[ ${#PRESTA_ENVS[@]} < 1 ]]; then
+    echo "No PRESTA_ENVS paths in your .rsyncrc file"
+    return
+  fi
+
+  if [[ -z $1 ]]; then
+    echo "No environment parameter; try ${bold}production${normal}, ${bold}staging${normal} or ${bold}testing${normal}."
+    return
+  fi
+
+  case $1 in
+    production)   CHOSEN_ENVIRONMENT=0   ;;
+    staging)      CHOSEN_ENVIRONMENT=1   ;;
+    testing)      CHOSEN_ENVIRONMENT=2   ;;
+    *)            echo "'$1' is not a known environment"; CHOSEN_ENVIRONMENT='' ;;
+  esac
+
+  if [[ -n $CHOSEN_ENVIRONMENT ]]; then
+    rsync -a --delete-excluded --exclude-from="/Users/$(whoami)/.prestarc-rsync" $(pwd) ${PRESTA_ENVS[$CHOSEN_ENVIRONMENT]}
+    echo "Deployed to ${PRESTA_ENVS[$CHOSEN_ENVIRONMENT]} at" $(date)
+  fi
+}
