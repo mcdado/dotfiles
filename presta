@@ -45,10 +45,9 @@ Usage: presta [command]
             local installations of PrestaShop.
 
      ${bold}build${normal}  Build a zip file from the current directory that
-            will be saved as ./dist/latest-{directory name}.zip
-            You can then rename it with the prefix "v{version number}-" yourself.
-            Alternatively, you can add ${bold}--ver${normal} or ${bold}--add-version${normal} at the end
-            to automatically add version number to the filename.
+            will be saved as ./dist/v{version}-{directory name}.zip
+            Alternatively, you can add ${bold}-n${normal}, ${bold}--nightly${normal} or ${bold}--no-version${normal} as last
+            argument to avoid adding a version number to the filename.
 
   ${bold}validate${normal}  Validate the current working directory using PrestaShop's own
             validation service. To be able to use PrestaShop Validator you need to
@@ -104,7 +103,7 @@ build() {
   local PROJNAME=$(basename $(pwd))
 
   local PREFIX='latest'
-  if [[ $1 == '-v' ]]; then
+  if [[ $1 != '-n' ]]; then
     local PREFIX="v$(awk -F"'|\"" '/\$this->version *= */{print $2}' $PROJNAME.php)"
   fi
 
@@ -157,8 +156,8 @@ case $1 in
     stage
     ;;
   build)
-    if [[ $2 == '--ver' || $2 == '--add-version' ]]; then
-      build -v
+    if [[ $2 == '-n' || $2 == '--nightly' || $2 == '--no-version' ]]; then
+      build -n
     else
       build
     fi
