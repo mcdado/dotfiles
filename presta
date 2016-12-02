@@ -117,7 +117,10 @@ build() {
   mkdir -p $FOLDERNAME/$PROJNAME/dist/
   zip -rq $FOLDERNAME/$PROJNAME/dist/$PREFIX-$PROJNAME.zip $PROJNAME
   cd $FOLDERNAME/$PROJNAME
-  rm -rf $TMPDIR/$PROJNAME
+
+  if [[ -n $TMPDIR || -n $PROJNAME ]]; then
+    rm -rf $TMPDIR/$PROJNAME
+  fi
 }
 
 validate() {
@@ -141,8 +144,11 @@ validate() {
     curl -s -F key=$KEY -F archive=@$TMPDIR$PROJNAME.zip $ENDPOINT | json-tidy
   fi
 
-  rm -rf $TMPDIR/$PROJNAME
-  rm -rf $TMPDIR/$PROJNAME.zip
+  if [[ -n $TMPDIR || -n $PROJNAME ]]; then
+    rm -rf $TMPDIR/$PROJNAME
+    rm -rf $TMPDIR/$PROJNAME.zip
+  fi
+
 }
 
 die() {
