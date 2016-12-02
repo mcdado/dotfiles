@@ -107,6 +107,11 @@ build() {
     local PREFIX="v$(awk -F"'|\"" '/\$this->version *= */{print $2}' $PROJNAME.php)"
   fi
 
+  if [[ -f $(pwd)/.composer.json || -f $(pwd)/.composer.lock ]]; then
+    composer -v -V 2>/dev/null
+    composer install -n -q
+  fi
+
   rsync -a --delete-excluded --exclude-from=$RSYNCRC $(pwd) $TMPDIR
   cd $TMPDIR
   mkdir -p $FOLDERNAME/$PROJNAME/dist/
