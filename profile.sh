@@ -20,7 +20,7 @@ fi
 export LANG=en_US.UTF-8
 export EDITOR="nano"
 export PAGER="less"
-export GIT_EDITOR=$EDITOR
+export GIT_EDITOR="vim -c'startinsert|norm! ggA'"
 export GIT_PAGER=$PAGER
 export PS1='\[\e[1m\]\w \$\[\e[0m\] '
 export GOPATH="$HOME/Developer/go"
