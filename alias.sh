@@ -1,4 +1,5 @@
-alias ll="ls -lhaG"
+alias ls="ls -hG"
+alias ll="ls -la"
 alias la="ll -F"                # for muscle memory fallback
 alias lm="ll -t"                # by last modified
 alias md="mkdir -p"             # make a nested dir

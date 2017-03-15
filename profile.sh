@@ -25,6 +25,11 @@ export GIT_PAGER=$PAGER
 export PS1='\[\e[1m\]\w \$\[\e[0m\] '
 export GOPATH="$HOME/Developer/go"
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin"
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
+# https://gist.github.com/dan/5c98c450c6905088050ab8ec4df716f1
+# export PS1='\[\e[01;30m\]\t`if [ $? = 0 ]; then echo "\[\e[32m\] ✔ "; else echo "\[\e[31m\] ✘ "; fi`\[\e[00;37m\]\u\[\e[01;37m\]:`[[ $(git status 2> /dev/null) =~ Changes\ to\ be\ committed: ]] && echo "\[\e[33m\]" || echo "\[\e[31m\]"``[[ ! $(git status 2> /dev/null) =~ nothing\ to\ commit,\ working\ .+\ clean ]] || echo "\[\e[32m\]"`$(__git_ps1 "(%s)\[\e[00m\]")\[\e[01;34m\]\w\[\e[00m\]\$ '
 
 # http://frantic.im/notify-on-completion
 # export PS1='$(f_notifyme)'$PS1
