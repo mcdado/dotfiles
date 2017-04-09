@@ -59,9 +59,11 @@
 	pushtoall = "!git remote | xargs -n 1 git push"
 	tags = tag
 	branches = branch -a -vv
+	stash-all = stash save --include-untracked
 	stashes = stash list
 	remotes = remote -v
 	precommit = diff --cached --diff-algorithm=minimal -w
+	rprune = fetch --prune
 	uncommit = reset --mixed HEAD~
 	discard = checkout --
 	untrack = rm --cache --
