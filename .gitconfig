@@ -2,7 +2,7 @@
 	name = David Gasperoni
 	email = mcdado@gmail.com
 [core]
-	excludesFile = /Users/David/.gitignore_global
+	excludesfile = /Users/David/.gitignore_global
 	autocrlf = input
 [merge]
 	tool = Kaleidoscope
