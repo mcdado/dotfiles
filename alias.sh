@@ -13,7 +13,8 @@ alias hs='history | grep --color=auto'
 alias sleepscreen="osascript -e 'tell application \"System Events\" to sleep'"
 
 alias myip="curl http://ipecho.net/plain ; echo"
-alias wifi="networksetup -setairportpower en1" # use wifi on or wifi off
+alias wifi="networksetup -setairportpower" # use wifi on or wifi off
+alias wifi-ip="ipconfig getifaddr en0"
 alias networklisteners='lsof -i -P | grep LISTEN'
 alias speedevnulltest='wget -O /dev/null http://speedtest.reliableservers.com/100MBtest.bin'
 
