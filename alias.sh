@@ -39,6 +39,7 @@ alias  ytl480="ytl -f best[height=480]"
 alias  ytl360="ytl -f best[height=360]"
 
 alias yt-audio="yt -f bestaudio"
+alias yt-sub="yt --all-subs --write-auto-sub" # grep '<c.color' subtitles.en.vtt | sed 's/<[^>]\+>//g'
 
 # Git related
 alias git-line-count="git ls-files | xargs cat | wc -l"
