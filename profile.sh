@@ -41,7 +41,7 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 
 # This defines where cd looks for targets
 # Add the directories you want to have fast access to, separated by colon
-CDPATH=".:~:~/Repos:~/Sites"
+CDPATH=".:~:~/Sites/"
 
 # Append to the history file, don't overwrite it
 shopt -s histappend
