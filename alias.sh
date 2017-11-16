@@ -17,6 +17,7 @@ alias wifi="networksetup -setairportpower" # use wifi on or wifi off
 alias wifi-ip="ipconfig getifaddr en0"
 alias networklisteners='lsof -i -P | grep LISTEN'
 alias speedevnulltest='wget -O /dev/null http://speedtest.reliableservers.com/100MBtest.bin'
+alias simple-web-server="python -m SimpleHTTPServer 3000"
 
 # Prefer htop over top
 if [[ -x `which htop` ]]; then alias top="htop"; fi
