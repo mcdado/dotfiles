@@ -45,6 +45,7 @@ alias yt-sub="yt --all-subs --write-auto-sub" # grep '<c.color' subtitles.en.vtt
 # Git related
 alias git-line-count="git ls-files | xargs cat | wc -l"
 alias g="git"
+alias git-search="git rev-list --all | xargs git grep"
 complete -o default -o nospace -F _git g
 
 # Disk usage
