@@ -12,6 +12,8 @@ alias rot13="echo {a..z} ; echo {n..z} {a..m}"
 alias hs='history | grep --color=auto'
 alias sleepscreen="osascript -e 'tell application \"System Events\" to sleep'"
 
+alias service="brew services"
+
 alias myip="curl http://ipecho.net/plain ; echo"
 alias wifi="networksetup -setairportpower" # use wifi on or wifi off
 alias wifi-ip="ipconfig getifaddr en0"
