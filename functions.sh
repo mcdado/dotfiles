@@ -71,19 +71,18 @@ function extract() {
 function getsite () {
   wget \
   -e robots=off \
-  --page-requisites \
-  --no-parent \
   --recursive \
+  --no-parent \
+  --page-requisites \
   --convert-links \
-  --restrict-file-names=windows \
   --adjust-extension \
+  --restrict-file-names=windows \
   "$@"
   # --span-hosts \
-  # --domain-list=labs.oreilly.com,cloudfront.net,mathjax.org,amazonaws.com \
+  # --domains=labs.oreilly.com,cloudfront.net,mathjax.org,amazonaws.com \
   # --wait=5 --limit-rate=300K \
   # --no-clobber \
   # --user-agent="" \
-  # --domains website.org \
 }
 
 # Download a single page including external resources.
