@@ -21,8 +21,8 @@ function aa() {
 
 # Make a dir and cd into it.
 function mkcd() {
-  mkdir -p $1
-  cd $1
+  mkdir -p -- "$1" &&
+  cd -- "$1"
 }
 
 # A better defaults to tree.
