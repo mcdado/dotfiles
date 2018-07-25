@@ -34,12 +34,13 @@
 	clean = git hawser clean %f
 	smudge = git hawser smudge %f
 	required = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 [color]
 	ui = true
-[filter "lfs"]
-	clean = git lfs clean %f
-	smudge = git lfs smudge %f
-	required = true
 [alias]
 	st = status
 	ci = commit
