@@ -6,20 +6,20 @@
 	autocrlf = input
 [push]
 	default = simple
-[diff]
-	tool = Kaleidoscope
-	compactionHeuristic = true
-[difftool]
-	prompt = false
-[merge]
-	tool = Kaleidoscope
-[mergetool]
-	prompt = false
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
+	trustexitcode = true
+[merge]
+	tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false
+[diff]
+	compactionHeuristic = true
+	tool = Kaleidoscope
 [filter "media"]
 	clean = git media clean %f
 	smudge = git media smudge %f
@@ -64,3 +64,5 @@
 	untrack = rm --cache --
 	unstage = reset HEAD --
 	nuke = !git reset --hard HEAD && git clean -d -f
+[url "https://"]
+	insteadOf = git://
