@@ -29,7 +29,6 @@ if [[ -x `which htop` ]]; then alias top="htop"; fi
 alias git-line-count="git ls-files | xargs cat | wc -l"
 alias g="git"
 alias git-search="git rev-list --all | xargs git grep"
-complete -o default -o nospace -F _git g
 
 # Disk usage
 alias sizes="du -sh * | sort -n"
