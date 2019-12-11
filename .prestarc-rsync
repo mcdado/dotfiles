@@ -15,6 +15,7 @@
 # Directories to exclude
 - dist/
 - deps/
+- uploads/
 
 # Other files
 - .DS_Store
@@ -29,3 +30,7 @@
 - todo.md
 - TODO.md
 - config.xml
+
+# Project specific
+- views/slider-overview.php
+- views/img/revtemplates/

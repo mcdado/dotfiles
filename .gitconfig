@@ -64,5 +64,6 @@
 	untrack = rm --cache --
 	unstage = reset HEAD --
 	nuke = !git reset --hard HEAD && git clean -d -f
+	cane = commit --amend --no-edit
 [url "https://"]
 	insteadOf = git://

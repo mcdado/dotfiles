@@ -11,3 +11,6 @@ set completion-map-case on
 
 # Perform file completion in a case insensitive fashion
 set completion-ignore-case on
+
+$include /etc/inputrc
+set colored-completion-prefix on
