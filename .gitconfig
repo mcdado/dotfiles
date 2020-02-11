@@ -52,7 +52,7 @@
 	tree = log --graph --oneline --all --decorate --full-history --color
 	last = log -1 HEAD
 	new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
-	top-committers = shortlog -sn --
+	top-committers = shortlog -sn --all --no-merges --
 	who-was-here = !sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -
 	case-check = !git ls-tree -r --name-only HEAD | tr A-Z a-z | sort | uniq -d
 	pushtoall = "!git remote | xargs -n 1 git push"
