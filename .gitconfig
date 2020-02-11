@@ -6,17 +6,21 @@
 	autocrlf = input
 [push]
 	default = simple
+[mergetool]
+	prompt = false
+[difftool]
+	prompt = false
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustexitcode = true
-[merge]
-	tool = Kaleidoscope
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[difftool]
-	prompt = false
-[mergetool]
-	prompt = false
+[mergetool "smerge"]
+	cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+	trustExitCode = true
+[merge]
+	tool = Kaleidoscope
+
 [diff]
 	compactionHeuristic = true
 	tool = Kaleidoscope
@@ -65,5 +69,6 @@
 	unstage = reset HEAD --
 	nuke = !git reset --hard HEAD && git clean -d -f
 	cane = commit --amend --no-edit
+	new = checkout -b
 [url "https://"]
 	insteadOf = git://

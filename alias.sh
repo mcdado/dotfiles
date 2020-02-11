@@ -20,7 +20,6 @@ alias myip="curl http://ipecho.net/plain ; echo"
 alias wifi="networksetup -setairportpower" # use wifi on or wifi off
 alias wifi-ip="ipconfig getifaddr en0"
 alias lsof-ports='lsof -nPi | grep LISTEN'
-alias speedevnulltest='wget -O /dev/null http://speedtest.reliableservers.com/100MBtest.bin'
 
 # Prefer htop over top
 if [[ -x `which htop` ]]; then alias top="htop"; fi
