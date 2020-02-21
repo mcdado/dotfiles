@@ -6,13 +6,9 @@
 	autocrlf = input
 [push]
 	default = simple
-[mergetool]
-	prompt = false
-[difftool]
-	prompt = false
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustexitcode = true
+	trustExitCode = true
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [mergetool "smerge"]
@@ -20,10 +16,13 @@
 	trustExitCode = true
 [merge]
 	tool = Kaleidoscope
-
+[mergetool]
+	prompt = false
 [diff]
 	compactionHeuristic = true
 	tool = Kaleidoscope
+[difftool]
+	prompt = false
 [filter "media"]
 	clean = git media clean %f
 	smudge = git media smudge %f
