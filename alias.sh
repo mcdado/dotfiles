@@ -20,6 +20,7 @@ alias myip="curl http://ipecho.net/plain ; echo"
 alias wifi="networksetup -setairportpower" # use wifi on or wifi off
 alias wifi-ip="ipconfig getifaddr en0"
 alias lsof-ports='lsof -nPi | grep LISTEN'
+alias ping-gateway="ping $(netstat -rn -f inet | awk '$1 == "default" {print $2}' | head -1)"
 
 # Prefer htop over top
 if [[ -x `which htop` ]]; then alias top="htop"; fi
