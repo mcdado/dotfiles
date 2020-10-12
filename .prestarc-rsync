@@ -13,9 +13,11 @@
 - .gitignore
 
 # Directories to exclude
+- .vscode/
 - dist/
 - deps/
 - uploads/
+- node_modules/
 
 # Other files
 - .DS_Store
@@ -25,8 +27,8 @@
 - .eslintrc*
 - .jshintrc
 - .jscsrc
-- composer.json
-- composer.lock
+#- composer.json
+#- composer.lock
 - todo.md
 - TODO.md
 - config.xml
