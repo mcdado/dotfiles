@@ -4,6 +4,11 @@
 [core]
 	excludesfile = /Users/David/.gitignore_global
 	autocrlf = input
+	pager = delta --theme='Monokai Extended'
+[interactive]
+	diffFilter = delta --color-only
+[pull]
+	ff = only
 [push]
 	default = simple
 [mergetool "Kaleidoscope"]
