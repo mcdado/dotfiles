@@ -5,6 +5,8 @@
 	excludesfile = /Users/David/.gitignore_global
 	autocrlf = input
 	pager = delta --theme='Monokai Extended'
+[includeIf "gitdir:~/Developer/Work/"]
+  path = ~/Developer/Work/.gitconfig
 [interactive]
 	diffFilter = delta --color-only
 [pull]
@@ -49,8 +51,10 @@
 	br = branch
 	co = checkout
 	df = diff
-	dc = diff --cached
+	ds = diff --staged
 	dt = difftool
+	dts = difftool --staged
+	cane = commit --amend --no-edit
 	lg = log -p
 	lol = log --oneline --all --decorate --full-history --color
 	tree = log --graph --oneline --all --decorate --full-history --color
@@ -65,14 +69,17 @@
 	stash-all = stash save --include-untracked
 	stashes = stash list
 	remotes = remote -v
-	precommit = diff --cached --diff-algorithm=minimal -w
-	rprune = fetch --prune
+	precommit = diff --staged --diff-algorithm=minimal -w
+	prune-remote = fetch --prune
 	uncommit = reset --mixed HEAD~
 	discard = checkout --
 	untrack = rm --cache --
-	unstage = reset HEAD --
+	unstage = restore --staged
 	nuke = !git reset --hard HEAD && git clean -d -f
-	cane = commit --amend --no-edit
-	new = checkout -b
+	up = pull --rebase
 [url "https://"]
 	insteadOf = git://
+[submodule]
+	recurse = true
+[init]
+	defaultBranch = main
