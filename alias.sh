@@ -26,10 +26,10 @@ alias ping-gateway="ping $(netstat -rn -f inet | awk '$1 == "default" {print $2}
 if [[ -x `which htop` ]]; then alias top="htop"; fi
 
 # Git related
-alias git-line-count="git ls-files | xargs cat | wc -l"
 alias g="git"
-alias git-search="git rev-list --all | xargs git grep"
 alias git-delete-merged="git branch -r --merged master | grep -v master | sed 's/origin\///' | xargs -n 1 git push --delete origin"
+alias git-line-count="git ls-files | xargs cat | wc -l"
+alias git-search="git rev-list --all | xargs git grep"
 
 # Disk usage
 alias sizes="du -sh * | sort -n"

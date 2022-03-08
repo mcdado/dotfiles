@@ -2,34 +2,37 @@
 	name = David Gasperoni
 	email = mcdado@gmail.com
 [core]
-	excludesfile = /Users/David/.gitignore_global
+	excludesfile = /Users/david/.gitignore_global
 	autocrlf = input
-	pager = delta --theme='Monokai Extended'
-[includeIf "gitdir:~/Developer/Work/"]
-  path = ~/Developer/Work/.gitconfig
+	pager = delta --syntax-theme='Visual Studio Dark+'
+[includeIf "gitdir:~/Developer/Projects/"]
+  path = ~/Developer/Projects/.gitconfig
 [interactive]
 	diffFilter = delta --color-only
 [pull]
 	ff = only
 [push]
 	default = simple
-[mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[mergetool "smerge"]
-	cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
-	trustExitCode = true
-[merge]
-	tool = Kaleidoscope
-[mergetool]
-	prompt = false
 [diff]
 	compactionHeuristic = true
 	tool = Kaleidoscope
 [difftool]
 	prompt = false
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[credential "https://github.com"]
+	helper =
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[merge]
+	tool = Kaleidoscope
+[mergetool]
+	prompt = false
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[mergetool "smerge"]
+	cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+	trustExitCode = true
 [filter "media"]
 	clean = git media clean %f
 	smudge = git media smudge %f
