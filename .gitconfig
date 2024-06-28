@@ -1,30 +1,37 @@
 [user]
 	name = David Gasperoni
 	email = mcdado@gmail.com
+[includeIf "hasconfig:remote.*.url:*brandnewteam*"]
+	email = web@3dprint.it
 [core]
 	excludesfile = /Users/david/.gitignore_global
 	autocrlf = input
 	pager = delta --syntax-theme='Visual Studio Dark+'
+[init]
+	defaultBranch = main
 [includeIf "gitdir:~/Developer/Projects/"]
   path = ~/Developer/Projects/.gitconfig
 [interactive]
 	diffFilter = delta --color-only
 [pull]
 	ff = only
+	#rebase = true
 [push]
-	default = simple
+	default = current
+	autosetupremote = true
 [diff]
 	compactionHeuristic = true
 	tool = Kaleidoscope
+	algorithm = histogram
 [difftool]
 	prompt = false
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [credential "https://github.com"]
-	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [merge]
 	tool = Kaleidoscope
+	conflictstyle = zdiff3
 [mergetool]
 	prompt = false
 [mergetool "Kaleidoscope"]
@@ -33,6 +40,8 @@
 [mergetool "smerge"]
 	cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
 	trustExitCode = true
+[rebase]
+	autostash = true
 [filter "media"]
 	clean = git media clean %f
 	smudge = git media smudge %f
@@ -84,5 +93,3 @@
 	insteadOf = git://
 [submodule]
 	recurse = true
-[init]
-	defaultBranch = main
