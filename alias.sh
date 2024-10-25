@@ -20,7 +20,7 @@ alias wifi="networksetup -setairportpower" # use wifi on or wifi off
 alias wifi-ip="ipconfig getifaddr en0"
 alias lsof-ports='lsof -nPi | grep LISTEN'
 alias ping-gateway="ping $(netstat -rn -f inet | awk '$1 == "default" {print $2}' | head -1)"
-alias dy="dig +noall +answer +additional $argv[1] @dns.toys" # dig help @dns.toys for exampls
+alias dy="dig +noall +answer +additional $argv[1] @dns.toys" # dig help @dns.toys for exampls
 
 # Prefer htop over top
 if [[ -x $(which htop) ]]; then alias top="htop"; fi
@@ -37,21 +37,26 @@ alias sizesdir="du -sh */ | sort -n"
 
 # Youtube download
 alias youtube-dl="yt-dlp"
-alias yt= "yt-dlp -o '%(title)s (%(uploader)s) [%(id)s].%(ext)s' $@"
+alias yt="yt-dlp -o '%(title)s (%(uploader)s) [%(id)s].%(ext)s' $@"
 alias ytl="yt-dlp -o '%(uploader)s - %(playlist)s/%(playlist_index)s. %(title)s [%(id)s].%(ext)s' $@"
-alias yt-best= "yt -f best"
-alias ytl-best="ytl -f best"
-alias yt1080="yt -f best[height=1080]"
-alias yt720= "yt -f best[height=720]"
-alias yt480= "yt -f best[height=480]"
-alias yt360= "yt -f best[height=360]"
-alias ytl1080="ytl -f best[height=1080]"
-alias ytl720= "ytl -f best[height=720]"
-alias ytl480= "ytl -f best[height=480]"
-alias ytl360= "ytl -f best[height=360]"
 
-alias yt-audio="yt -f bestaudio"
-alias yt-sub="yt --all-subs --write-auto-sub" # grep '<c.color' subtitles.en.vtt | sed 's/<[^>]\+>//g'
+alias yt_best="yt -f b $@" # downloads merged best
+alias ytl_best="ytl -f b $@" # downloads merged best
+
+alias yt_1440="yt -f 'bv[height=1440]+ba/b' $@"
+alias yt_1080="yt -f 'bv[height=1080]+ba/b' $@"
+alias  yt_720="yt -f 'bv[height=720]+ba/b' $@"
+alias  yt_480="yt -f 'bv[height=480]+ba/b' $@"
+alias  yt_360="yt -f 'bv[height=360]+ba/b' $@"
+
+alias ytl_1440="ytl -f 'bv[height=1440]+ba/b' $@"
+alias ytl_1080="ytl -f 'bv[height=1080]+ba/b' $@"
+alias  ytl_720="ytl -f 'bv[height=720]+ba/b' $@"
+alias  ytl_480="ytl -f 'bv[height=480]+ba/b' $@"
+alias  ytl_360="ytl -f 'bv[height=360]+ba/b' $@"
+
+alias yt_audio="yt -f bestaudio"
+alias   yt_sub="yt --all-subs --write-auto-sub" # grep '<c.color' subtitles.en.vtt | sed 's/<[^>]\+>//g'
 
 # alias phplogs="tail -n 0 -f /var/log/php/php_error_log"
 # alias speedtest="speedtest -s 21349"
