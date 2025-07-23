@@ -41,6 +41,7 @@ alias yt="yt-dlp -o '%(title)s (%(uploader)s) [%(id)s].%(ext)s' $@"
 alias ytl="yt-dlp -o '%(uploader)s - %(playlist)s/%(playlist_index)s. %(title)s [%(id)s].%(ext)s' $@"
 
 alias yt_best="yt -f b $@" # downloads merged best
+alias yt_best_mp4="yt -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' $@" # downloads merged best mp4 formats
 alias ytl_best="ytl -f b $@" # downloads merged best
 
 alias yt_1440="yt -f 'bv[height=1440]+ba/b' $@"
