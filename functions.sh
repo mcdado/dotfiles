@@ -202,6 +202,18 @@ man() {
   man "$@"
 }
 
+function manpreview() {
+    mandoc -T pdf "$(/usr/bin/man -w $@)" | open -fa Preview
+}
+
+function manpage() {
+  if [[ -z $2 ]]; then
+    open x-man-page://"$1"
+  else
+    open x-man-page://"$1"/"$2"
+  fi
+}
+
 function presta-deploy {
   local PROJECTNAME="$(basename $(pwd))"
   local readonly bold=$(tput bold)
