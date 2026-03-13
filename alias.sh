@@ -61,3 +61,6 @@ alias   yt_sub="yt --all-subs --write-auto-sub" # grep '<c.color' subtitles.en.v
 
 # alias phplogs="tail -n 0 -f /var/log/php/php_error_log"
 # alias speedtest="speedtest -s 21349"
+
+# docker pull pandoc/latex:latest-ubuntu
+alias pandoc='docker run --rm -v "$(pwd):/data" -u $(id -u):$(id -g) pandoc/latex:latest-ubuntu'
