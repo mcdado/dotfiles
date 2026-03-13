@@ -120,6 +120,8 @@
 	<false/>
 	<key>ShowDimensionsInTitle</key>
 	<false/>
+	<key>ShowRepresentedURLPathInTitle</key>
+	<true/>
 	<key>TextBoldColor</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
@@ -148,10 +150,10 @@
 	<key>name</key>
 	<string>David</string>
 	<key>rowCount</key>
-	<integer>42</integer>
+	<integer>48</integer>
 	<key>type</key>
 	<string>Window Settings</string>
 	<key>useOptionAsMetaKey</key>
-	<true/>
+	<false/>
 </dict>
 </plist>

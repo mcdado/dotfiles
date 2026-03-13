@@ -6,7 +6,7 @@
 [core]
 	excludesfile = /Users/david/.gitignore_global
 	autocrlf = input
-	pager = delta --syntax-theme='Visual Studio Dark+'
+	pager = delta
 [init]
 	defaultBranch = main
 [includeIf "gitdir:~/Developer/Projects/"]
