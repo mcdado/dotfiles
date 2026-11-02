@@ -37,13 +37,14 @@ alias sizesdir="du -sh */ | sort -n"
 
 # Youtube download
 alias youtube-dl="yt-dlp"
-alias yt="yt-dlp -o '%(title)s (%(uploader)s) [%(id)s].%(ext)s' $@"
+alias yt="yt-dlp --concurrent-fragments 8  -P 'temp:$TMPDIR' -o '%(title)s (%(uploader)s) [%(id)s].%(ext)s' $@"
 alias ytl="yt-dlp -o '%(uploader)s - %(playlist)s/%(playlist_index)s. %(title)s [%(id)s].%(ext)s' $@"
 
 alias yt_best="yt -f b $@" # downloads merged best
 alias yt_best_mp4="yt -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' $@" # downloads merged best mp4 formats
 alias ytl_best="ytl -f b $@" # downloads merged best
 
+alias yt_2160="yt -f 'bv[height=2160]+ba/b' $@"
 alias yt_1440="yt -f 'bv[height=1440]+ba/b' $@"
 alias yt_1080="yt -f 'bv[height=1080]+ba/b' $@"
 alias  yt_720="yt -f 'bv[height=720]+ba/b' $@"
@@ -58,6 +59,8 @@ alias  ytl_360="ytl -f 'bv[height=360]+ba/b' $@"
 
 alias yt_audio="yt -f bestaudio"
 alias   yt_sub="yt --all-subs --write-auto-sub" # grep '<c.color' subtitles.en.vtt | sed 's/<[^>]\+>//g'
+
+alias yt_safari="yt --cookies-from-browser Safari $@"
 
 # alias phplogs="tail -n 0 -f /var/log/php/php_error_log"
 # alias speedtest="speedtest -s 21349"
